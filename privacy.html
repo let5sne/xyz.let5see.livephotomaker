@@ -13,27 +13,22 @@
             --bg-secondary: #ffffff;
             --bg-elevated: #f7f7fa;
             --bg-pressed: #e4e4e9;
-            
             --text-primary: #2d2d3a;
             --text-secondary: #6b6b7b;
             --text-muted: #9999a9;
             --text-inverse: #ffffff;
-            
             --accent-primary: #6366f1;
             --accent-green: #10b981;
             --accent-cyan: #06b6d4;
-            
+            --accent-orange: #f59e0b;
             --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             --gradient-success: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
-            
+            --gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
             --shadow-raised: 6px 6px 12px rgba(166, 171, 189, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.8);
             --shadow-raised-sm: 3px 3px 6px rgba(166, 171, 189, 0.4), -3px -3px 6px rgba(255, 255, 255, 0.7);
-            --shadow-pressed: inset 4px 4px 8px rgba(166, 171, 189, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
             --glow-primary: 0 8px 24px rgba(99, 102, 241, 0.35);
-            
             --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
             --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
-            
             --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
             --radius-xl: 24px; --radius-2xl: 32px; --radius-full: 9999px;
         }
@@ -44,14 +39,11 @@
                 --bg-secondary: #25253b;
                 --bg-elevated: #2d2d47;
                 --bg-pressed: #16162a;
-                
                 --text-primary: #e4e4eb;
                 --text-secondary: #a0a0b2;
                 --text-muted: #6b6b7b;
-                
                 --shadow-raised: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(60, 60, 90, 0.15);
                 --shadow-raised-sm: 3px 3px 6px rgba(0, 0, 0, 0.4), -3px -3px 6px rgba(60, 60, 90, 0.1);
-                --shadow-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -4px -4px 8px rgba(60, 60, 90, 0.1);
             }
         }
         
@@ -71,7 +63,6 @@
             padding: var(--space-10) var(--space-5);
         }
         
-        /* Header */
         header { margin-bottom: var(--space-8); }
         
         .back-link {
@@ -113,7 +104,6 @@
             font-weight: 500;
         }
         
-        /* Highlight Box */
         .highlight-box {
             background: var(--gradient-success);
             border-radius: var(--radius-xl);
@@ -137,7 +127,6 @@
             margin: 0;
         }
         
-        /* Soft Card */
         .soft-card {
             background: var(--bg-secondary);
             border-radius: var(--radius-xl);
@@ -156,9 +145,7 @@
             gap: var(--space-3);
         }
         
-        .soft-card h2 .emoji {
-            font-size: 22px;
-        }
+        .soft-card h2 .emoji { font-size: 22px; }
         
         .soft-card p {
             color: var(--text-secondary);
@@ -168,7 +155,6 @@
         
         .soft-card p:last-child { margin-bottom: 0; }
         
-        /* Info List */
         .info-list {
             list-style: none;
             margin-top: var(--space-4);
@@ -197,6 +183,8 @@
             flex-shrink: 0;
         }
         
+        .info-list .icon.cyan { background: var(--gradient-cyan); }
+        
         .info-list .content { flex: 1; }
         
         .info-list .title {
@@ -211,7 +199,38 @@
             font-size: 13px;
         }
         
-        /* Contact Section */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-primary);
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            margin-left: var(--space-2);
+        }
+        
+        .badge.pro {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+        }
+        
+        .note-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--accent-orange);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .note-box p {
+            color: var(--accent-orange);
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
         .contact-section {
             background: var(--gradient-primary);
             border-radius: var(--radius-xl);
@@ -252,7 +271,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
-        /* Footer */
         footer {
             text-align: center;
             margin-top: var(--space-10);
@@ -271,39 +289,65 @@
         
         <div class="highlight-box">
             <span class="icon">🔒</span>
-            <p>核心承诺：所有处理均在您的设备本地完成，我们不会收集或上传您的任何数据。</p>
+            <p>核心承诺：我们尊重您的隐私，基础功能完全离线运行，高级云端功能仅在您明确授权后使用。</p>
         </div>
         
         <div class="soft-card">
             <h2><span class="emoji">📋</span> 概述</h2>
             <p>Live Photo Maker（以下简称"本应用"）尊重并保护您的隐私。本隐私政策说明我们如何收集、使用和保护您的信息。</p>
+            <p>本应用提供两种处理模式：<strong>本地处理</strong>（免费）和<strong>云端增强</strong>（付费订阅）。不同模式的数据处理方式有所不同，请仔细阅读。</p>
         </div>
         
         <div class="soft-card">
-            <h2><span class="emoji">📊</span> 数据收集</h2>
+            <h2><span class="emoji">🏠</span> 本地处理模式 <span class="badge">免费</span></h2>
+            <p>基础功能完全在您的设备本地运行：</p>
             <ul class="info-list">
                 <li>
-                    <div class="icon">🏠</div>
+                    <div class="icon">📱</div>
                     <div class="content">
-                        <div class="title">本地处理</div>
-                        <div class="desc">所有视频处理和 AI 增强均在您的设备本地完成，不会上传到任何服务器。</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="icon">🖼️</div>
-                    <div class="content">
-                        <div class="title">相册访问</div>
-                        <div class="desc">我们仅在您授权后访问相册，用于读取视频和保存生成的 Live Photo。</div>
+                        <div class="title">设备端处理</div>
+                        <div class="desc">视频转换、本地 AI 增强均在您的设备上完成，数据不会离开您的手机。</div>
                     </div>
                 </li>
                 <li>
                     <div class="icon">🚫</div>
                     <div class="content">
-                        <div class="title">无用户追踪</div>
-                        <div class="desc">我们不收集任何个人身份信息，不追踪您的使用行为。</div>
+                        <div class="title">无数据上传</div>
+                        <div class="desc">使用本地处理模式时，您的图片和视频不会上传到任何服务器。</div>
                     </div>
                 </li>
             </ul>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">☁️</span> 云端增强模式 <span class="badge pro">Pro</span></h2>
+            <p>订阅用户可使用云端 AI 增强功能，获得更高质量的处理效果：</p>
+            <ul class="info-list">
+                <li>
+                    <div class="icon cyan">🚀</div>
+                    <div class="content">
+                        <div class="title">数据传输</div>
+                        <div class="desc">使用云端增强时，您选择的图片或视频帧会通过加密连接（HTTPS/TLS）上传至我们的安全服务器进行处理。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon cyan">🗑️</div>
+                    <div class="content">
+                        <div class="title">即时删除</div>
+                        <div class="desc">处理完成后，您的原始数据和处理结果将在 24 小时内从服务器自动删除，我们不会保留您的任何媒体内容。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon cyan">🔐</div>
+                    <div class="content">
+                        <div class="title">数据安全</div>
+                        <div class="desc">所有传输数据均经过端到端加密，服务器位于符合 GDPR 标准的数据中心。</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="note-box">
+                <p>⚠️ 云端增强功能需要网络连接，每次使用前会明确提示并征得您的同意。</p>
+            </div>
         </div>
         
         <div class="soft-card">
@@ -323,12 +367,34 @@
                         <div class="desc">用于将生成的 Live Photo 保存到相册。</div>
                     </div>
                 </li>
+                <li>
+                    <div class="icon">🌐</div>
+                    <div class="content">
+                        <div class="title">网络访问（可选）</div>
+                        <div class="desc">仅在使用云端增强功能时需要，用于与服务器通信。</div>
+                    </div>
+                </li>
             </ul>
         </div>
         
         <div class="soft-card">
-            <h2><span class="emoji">🤖</span> AI 功能</h2>
-            <p>本应用的 AI 超分辨率功能完全在设备本地运行，使用 Apple Core ML 框架进行推理。您的图片和视频不会离开您的设备。</p>
+            <h2><span class="emoji">📊</span> 数据收集</h2>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">📈</div>
+                    <div class="content">
+                        <div class="title">匿名使用统计</div>
+                        <div class="desc">我们可能收集匿名的功能使用统计（如功能使用次数、崩溃报告），用于改进应用体验。这些数据不包含任何可识别个人身份的信息。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">💳</div>
+                    <div class="content">
+                        <div class="title">订阅信息</div>
+                        <div class="desc">订阅购买通过 Apple 处理，我们仅接收订阅状态，不会获取您的支付详情。</div>
+                    </div>
+                </li>
+            </ul>
         </div>
         
         <div class="soft-card">
@@ -353,7 +419,56 @@
         
         <div class="soft-card">
             <h2><span class="emoji">🔗</span> 第三方服务</h2>
-            <p>本应用不使用任何第三方分析服务或广告平台。</p>
+            <p>本应用可能使用以下第三方服务：</p>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">🍎</div>
+                    <div class="content">
+                        <div class="title">Apple 服务</div>
+                        <div class="desc">App Store 内购、iCloud（如适用），受 Apple 隐私政策约束。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🛡️</div>
+                    <div class="content">
+                        <div class="title">崩溃分析（可选）</div>
+                        <div class="desc">用于收集匿名崩溃报告以改进应用稳定性，不包含个人数据。</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">👤</span> 您的权利</h2>
+            <p>您对自己的数据拥有完全控制权：</p>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">🗑️</div>
+                    <div class="content">
+                        <div class="title">删除数据</div>
+                        <div class="desc">您可以随时在应用设置中清理所有本地缓存和作品记录。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🚪</div>
+                    <div class="content">
+                        <div class="title">退出云端服务</div>
+                        <div class="desc">您可以随时停止使用云端增强功能，继续使用完全离线的本地处理。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">📧</div>
+                    <div class="content">
+                        <div class="title">数据查询</div>
+                        <div class="desc">如需了解我们持有的关于您的数据，请通过邮件联系我们。</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">🔄</span> 政策更新</h2>
+            <p>我们可能会不时更新本隐私政策。重大变更时，我们会在应用内通知您。继续使用本应用即表示您接受更新后的政策。</p>
         </div>
         
         <div class="contact-section">

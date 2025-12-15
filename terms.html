@@ -154,6 +154,8 @@
             flex-shrink: 0;
         }
         
+        .info-list .icon.purple { background: var(--gradient-primary); }
+        
         .info-list .content { flex: 1; }
         
         .info-list .title {
@@ -166,6 +168,33 @@
         .info-list .desc {
             color: var(--text-secondary);
             font-size: 13px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            margin-left: var(--space-2);
+        }
+        
+        .note-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .note-box p {
+            color: var(--accent-primary);
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
         }
         
         .contact-section {
@@ -232,6 +261,44 @@
         <div class="soft-card">
             <h2><span class="emoji">📱</span> 服务说明</h2>
             <p>Live Photo Maker 是一款将视频转换为 Live Photo 的工具应用，帮助您创建可用于动态壁纸的内容。</p>
+            <p>本应用提供免费基础功能和付费高级功能（Pro）。部分高级功能可能需要网络连接和云端处理。</p>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">💎</span> 订阅与内购 <span class="badge">Pro</span></h2>
+            <ul class="info-list">
+                <li>
+                    <div class="icon purple">💳</div>
+                    <div class="content">
+                        <div class="title">付款方式</div>
+                        <div class="desc">所有购买通过 Apple App Store 处理。订阅费用将从您的 Apple ID 账户中扣除。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon purple">🔄</div>
+                    <div class="content">
+                        <div class="title">自动续订</div>
+                        <div class="desc">订阅将在到期前 24 小时内自动续订，除非您在到期前至少 24 小时关闭自动续订。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon purple">❌</div>
+                    <div class="content">
+                        <div class="title">取消订阅</div>
+                        <div class="desc">您可以随时在 App Store 账户设置中管理或取消订阅。取消后，您可以继续使用至当前订阅期结束。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon purple">🚫</div>
+                    <div class="content">
+                        <div class="title">退款政策</div>
+                        <div class="desc">订阅退款需通过 Apple 申请处理，我们无法直接处理退款请求。</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="note-box">
+                <p>💡 免费试用期（如有）结束后将自动转为付费订阅，请在试用期内决定是否续订。</p>
+            </div>
         </div>
         
         <div class="soft-card">
@@ -248,7 +315,42 @@
                     <div class="icon">👤</div>
                     <div class="content">
                         <div class="title">个人使用</div>
-                        <div class="desc">本应用仅供个人非商业用途。</div>
+                        <div class="desc">本应用仅供个人非商业用途，商业用途需另行授权。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🚫</div>
+                    <div class="content">
+                        <div class="title">禁止滥用</div>
+                        <div class="desc">禁止恶意使用云端服务、尝试破解付费功能、干扰服务运行等行为。</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">☁️</span> 云端服务</h2>
+            <p>使用云端增强功能时，请注意：</p>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">🌐</div>
+                    <div class="content">
+                        <div class="title">网络依赖</div>
+                        <div class="desc">云端功能需要稳定的网络连接。网络问题可能导致处理失败或延迟。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">⏱️</div>
+                    <div class="content">
+                        <div class="title">服务可用性</div>
+                        <div class="desc">我们将尽力保证服务稳定，但不保证 100% 可用性。维护或故障期间服务可能暂停。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">📊</div>
+                    <div class="content">
+                        <div class="title">用量限制</div>
+                        <div class="desc">为保证服务质量，云端处理可能设有合理的使用限额。</div>
                     </div>
                 </li>
             </ul>
@@ -268,14 +370,21 @@
                     <div class="icon">📝</div>
                     <div class="content">
                         <div class="title">内容责任</div>
-                        <div class="desc">您对使用本应用处理的所有内容负全部责任。</div>
+                        <div class="desc">您对使用本应用处理的所有内容负全部责任，包括确保拥有相关内容的使用权。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🤖</div>
+                    <div class="content">
+                        <div class="title">AI 处理结果</div>
+                        <div class="desc">AI 增强效果可能因原始素材质量而异，我们不保证特定的处理效果。</div>
                     </div>
                 </li>
                 <li>
                     <div class="icon">🔧</div>
                     <div class="content">
                         <div class="title">服务可用性</div>
-                        <div class="desc">我们不保证应用在所有设备上都能完美运行。</div>
+                        <div class="desc">我们不保证应用在所有设备上都能完美运行，也不承担因服务中断造成的损失。</div>
                     </div>
                 </li>
             </ul>
@@ -283,12 +392,12 @@
         
         <div class="soft-card">
             <h2><span class="emoji">©️</span> 知识产权</h2>
-            <p>本应用及其所有相关内容（包括但不限于代码、设计、图标）的知识产权归开发者所有。</p>
+            <p>本应用及其所有相关内容（包括但不限于代码、设计、图标、AI 模型）的知识产权归开发者所有。您通过本应用创建的内容归您所有。</p>
         </div>
         
         <div class="soft-card">
             <h2><span class="emoji">🔄</span> 条款变更</h2>
-            <p>我们可能会不时更新本使用条款。继续使用本应用即表示您接受更新后的条款。</p>
+            <p>我们可能会不时更新本使用条款。重大变更时会在应用内通知您。继续使用本应用即表示您接受更新后的条款。</p>
         </div>
         
         <div class="contact-section">
