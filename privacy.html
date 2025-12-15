@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>隐私政策 - Live Photo Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #F0F0F3;
-            --card: #FFFFFF;
-            --text-primary: #1A1A2E;
-            --text-secondary: #6B7280;
-            --accent: #6366F1;
-            --radius: 16px;
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #ffffff;
+            --bg-elevated: #f7f7fa;
+            --bg-pressed: #e4e4e9;
+            
+            --text-primary: #2d2d3a;
+            --text-secondary: #6b6b7b;
+            --text-muted: #9999a9;
+            --text-inverse: #ffffff;
+            
+            --accent-primary: #6366f1;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+            
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+            
+            --shadow-raised: 6px 6px 12px rgba(166, 171, 189, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.8);
+            --shadow-raised-sm: 3px 3px 6px rgba(166, 171, 189, 0.4), -3px -3px 6px rgba(255, 255, 255, 0.7);
+            --shadow-pressed: inset 4px 4px 8px rgba(166, 171, 189, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            --glow-primary: 0 8px 24px rgba(99, 102, 241, 0.35);
+            
+            --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+            --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+            
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+            --radius-xl: 24px; --radius-2xl: 32px; --radius-full: 9999px;
         }
         
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #1A1A2E;
-                --card: #25253B;
-                --text-primary: #FFFFFF;
-                --text-secondary: #9CA3AF;
+                --bg-primary: #1a1a2e;
+                --bg-secondary: #25253b;
+                --bg-elevated: #2d2d47;
+                --bg-pressed: #16162a;
+                
+                --text-primary: #e4e4eb;
+                --text-secondary: #a0a0b2;
+                --text-muted: #6b6b7b;
+                
+                --shadow-raised: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(60, 60, 90, 0.15);
+                --shadow-raised-sm: 3px 3px 6px rgba(0, 0, 0, 0.4), -3px -3px 6px rgba(60, 60, 90, 0.1);
+                --shadow-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -4px -4px 8px rgba(60, 60, 90, 0.1);
             }
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.8;
             min-height: 100vh;
@@ -40,107 +68,195 @@
         .container {
             max-width: 700px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: var(--space-10) var(--space-5);
         }
         
-        header {
-            margin-bottom: 32px;
-        }
+        /* Header */
+        header { margin-bottom: var(--space-8); }
         
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            color: var(--accent);
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-4);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            color: var(--accent-primary);
             text-decoration: none;
             font-size: 14px;
-            margin-bottom: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-raised-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-3px);
+            box-shadow: var(--shadow-raised);
         }
         
         h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: var(--space-2);
         }
         
         .update-date {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-        
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--accent);
-        }
-        
-        p {
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-        }
-        
-        .highlight {
-            background: rgba(99, 102, 241, 0.1);
-            border-left: 3px solid var(--accent);
-            padding: 16px;
-            border-radius: 0 8px 8px 0;
-            margin: 16px 0;
-        }
-        
-        .highlight p {
-            margin: 0;
-            color: var(--text-primary);
-        }
-        
-        ul {
-            list-style: none;
-            margin: 12px 0;
-        }
-        
-        li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        li::before {
-            content: "•";
-            position: absolute;
-            left: 8px;
-            color: var(--accent);
-        }
-        
-        li strong {
-            color: var(--text-primary);
-        }
-        
-        .contact {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
-            border-radius: var(--radius);
-            padding: 24px;
-            text-align: center;
-        }
-        
-        .contact a {
-            color: var(--accent);
-            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--bg-elevated);
+            border-radius: var(--radius-full);
+            color: var(--text-muted);
+            font-size: 13px;
             font-weight: 500;
         }
         
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--gradient-success);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5) var(--space-6);
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            color: white;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+        }
+        
+        .highlight-box .icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        
+        .highlight-box p {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Soft Card */
+        .soft-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-5);
+            box-shadow: var(--shadow-raised);
+        }
+        
+        .soft-card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .soft-card h2 .emoji {
+            font-size: 22px;
+        }
+        
+        .soft-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+            font-size: 15px;
+        }
+        
+        .soft-card p:last-child { margin-bottom: 0; }
+        
+        /* Info List */
+        .info-list {
+            list-style: none;
+            margin-top: var(--space-4);
+        }
+        
+        .info-list li {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background: var(--bg-elevated);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-3);
+        }
+        
+        .info-list li:last-child { margin-bottom: 0; }
+        
+        .info-list .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .info-list .content { flex: 1; }
+        
+        .info-list .title {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        
+        .info-list .desc {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            text-align: center;
+            color: white;
+            box-shadow: var(--glow-primary);
+        }
+        
+        .contact-section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+        }
+        
+        .contact-section p {
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: var(--space-5);
+        }
+        
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            background: white;
+            color: var(--accent-primary);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+        
+        .email-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: var(--text-secondary);
+            margin-top: var(--space-10);
+            color: var(--text-muted);
             font-size: 14px;
         }
     </style>
@@ -150,57 +266,102 @@
         <header>
             <a href="index.html" class="back-link">← 返回首页</a>
             <h1>隐私政策</h1>
-            <p class="update-date">最后更新：2025年12月</p>
+            <span class="update-date">📅 最后更新：2025年12月</span>
         </header>
         
-        <div class="card">
-            <h2>概述</h2>
+        <div class="highlight-box">
+            <span class="icon">🔒</span>
+            <p>核心承诺：所有处理均在您的设备本地完成，我们不会收集或上传您的任何数据。</p>
+        </div>
+        
+        <div class="soft-card">
+            <h2><span class="emoji">📋</span> 概述</h2>
             <p>Live Photo Maker（以下简称"本应用"）尊重并保护您的隐私。本隐私政策说明我们如何收集、使用和保护您的信息。</p>
-            
-            <div class="highlight">
-                <p>🔒 <strong>核心承诺</strong>：所有处理均在您的设备本地完成，我们不会收集或上传您的任何数据。</p>
-            </div>
         </div>
         
-        <div class="card">
-            <h2>数据收集</h2>
-            <ul>
-                <li><strong>本地处理</strong> - 所有视频处理和 AI 增强均在您的设备本地完成，不会上传到任何服务器。</li>
-                <li><strong>相册访问</strong> - 我们仅在您授权后访问相册，用于读取视频和保存生成的 Live Photo。</li>
-                <li><strong>无用户追踪</strong> - 我们不收集任何个人身份信息，不追踪您的使用行为。</li>
+        <div class="soft-card">
+            <h2><span class="emoji">📊</span> 数据收集</h2>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">🏠</div>
+                    <div class="content">
+                        <div class="title">本地处理</div>
+                        <div class="desc">所有视频处理和 AI 增强均在您的设备本地完成，不会上传到任何服务器。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🖼️</div>
+                    <div class="content">
+                        <div class="title">相册访问</div>
+                        <div class="desc">我们仅在您授权后访问相册，用于读取视频和保存生成的 Live Photo。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🚫</div>
+                    <div class="content">
+                        <div class="title">无用户追踪</div>
+                        <div class="desc">我们不收集任何个人身份信息，不追踪您的使用行为。</div>
+                    </div>
+                </li>
             </ul>
         </div>
         
-        <div class="card">
-            <h2>权限说明</h2>
-            <ul>
-                <li><strong>相册读取权限</strong> - 用于从相册选择视频素材。</li>
-                <li><strong>相册写入权限</strong> - 用于将生成的 Live Photo 保存到相册。</li>
+        <div class="soft-card">
+            <h2><span class="emoji">🔑</span> 权限说明</h2>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">📖</div>
+                    <div class="content">
+                        <div class="title">相册读取权限</div>
+                        <div class="desc">用于从相册选择视频素材。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">💾</div>
+                    <div class="content">
+                        <div class="title">相册写入权限</div>
+                        <div class="desc">用于将生成的 Live Photo 保存到相册。</div>
+                    </div>
+                </li>
             </ul>
         </div>
         
-        <div class="card">
-            <h2>AI 功能</h2>
+        <div class="soft-card">
+            <h2><span class="emoji">🤖</span> AI 功能</h2>
             <p>本应用的 AI 超分辨率功能完全在设备本地运行，使用 Apple Core ML 框架进行推理。您的图片和视频不会离开您的设备。</p>
         </div>
         
-        <div class="card">
-            <h2>数据存储</h2>
-            <ul>
-                <li><strong>临时缓存</strong> - 处理过程中产生的临时文件存储在应用沙盒内，您可以在设置中清理。</li>
-                <li><strong>最近作品</strong> - 仅存储作品的缩略图和参数信息，不重复存储媒体内容。</li>
+        <div class="soft-card">
+            <h2><span class="emoji">💿</span> 数据存储</h2>
+            <ul class="info-list">
+                <li>
+                    <div class="icon">🗂️</div>
+                    <div class="content">
+                        <div class="title">临时缓存</div>
+                        <div class="desc">处理过程中产生的临时文件存储在应用沙盒内，您可以在设置中清理。</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🕐</div>
+                    <div class="content">
+                        <div class="title">最近作品</div>
+                        <div class="desc">仅存储作品的缩略图和参数信息，不重复存储媒体内容。</div>
+                    </div>
+                </li>
             </ul>
         </div>
         
-        <div class="card">
-            <h2>第三方服务</h2>
+        <div class="soft-card">
+            <h2><span class="emoji">🔗</span> 第三方服务</h2>
             <p>本应用不使用任何第三方分析服务或广告平台。</p>
         </div>
         
-        <div class="contact">
-            <h2>联系我们</h2>
-            <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-            <p><a href="mailto:support@let5see.xyz">support@let5see.xyz</a></p>
+        <div class="contact-section">
+            <h2>📧 联系我们</h2>
+            <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们</p>
+            <a href="mailto:support@let5see.xyz" class="email-btn">
+                ✉️ support@let5see.xyz
+            </a>
         </div>
         
         <footer>

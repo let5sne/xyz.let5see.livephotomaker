@@ -4,23 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Photo Maker - 视频一键转动态壁纸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #F0F0F3;
-            --card: #FFFFFF;
-            --text-primary: #1A1A2E;
-            --text-secondary: #6B7280;
-            --accent: #6366F1;
-            --accent-pink: #EC4899;
-            --radius: 16px;
+            /* Soft UI Colors - Light Mode */
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #ffffff;
+            --bg-elevated: #f7f7fa;
+            --bg-pressed: #e4e4e9;
+            
+            --text-primary: #2d2d3a;
+            --text-secondary: #6b6b7b;
+            --text-muted: #9999a9;
+            --text-inverse: #ffffff;
+            
+            --accent-primary: #6366f1;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --gradient-pink: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+            
+            /* Shadows */
+            --shadow-raised: 6px 6px 12px rgba(166, 171, 189, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.8);
+            --shadow-raised-sm: 3px 3px 6px rgba(166, 171, 189, 0.4), -3px -3px 6px rgba(255, 255, 255, 0.7);
+            --shadow-pressed: inset 4px 4px 8px rgba(166, 171, 189, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            --glow-primary: 0 8px 24px rgba(99, 102, 241, 0.35);
+            --glow-pink: 0 8px 24px rgba(236, 72, 153, 0.35);
+            
+            /* Spacing */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            
+            /* Radii */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
         }
         
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #1A1A2E;
-                --card: #25253B;
-                --text-primary: #FFFFFF;
-                --text-secondary: #9CA3AF;
+                --bg-primary: #1a1a2e;
+                --bg-secondary: #25253b;
+                --bg-elevated: #2d2d47;
+                --bg-pressed: #16162a;
+                
+                --text-primary: #e4e4eb;
+                --text-secondary: #a0a0b2;
+                --text-muted: #6b6b7b;
+                
+                --shadow-raised: 6px 6px 12px rgba(0, 0, 0, 0.5), -6px -6px 12px rgba(60, 60, 90, 0.15);
+                --shadow-raised-sm: 3px 3px 6px rgba(0, 0, 0, 0.4), -3px -3px 6px rgba(60, 60, 90, 0.1);
+                --shadow-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.4), inset -4px -4px 8px rgba(60, 60, 90, 0.1);
             }
         }
         
@@ -31,8 +81,8 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
@@ -41,116 +91,267 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: var(--space-10) var(--space-5);
         }
         
+        /* Hero Section */
         .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: var(--space-10);
         }
         
         .app-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #6366F1, #8B5CF6);
-            border-radius: 28px;
+            width: 140px;
+            height: 140px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-2xl);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+            margin: 0 auto var(--space-6);
+            box-shadow: var(--glow-primary), var(--shadow-raised);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translate(-30%, -30%); }
+            50% { transform: translate(30%, 30%); }
         }
         
         .app-icon svg {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             fill: white;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: var(--space-2);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .tagline {
             color: var(--text-secondary);
-            font-size: 16px;
-        }
-        
-        .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .card h2 {
             font-size: 18px;
-            margin-bottom: 16px;
+            font-weight: 500;
+        }
+        
+        /* Soft Card */
+        .soft-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-5);
+            box-shadow: var(--shadow-raised);
+        }
+        
+        .soft-card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-3);
         }
         
-        .card ul {
+        .soft-card h2 .icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .icon-purple { background: rgba(99, 102, 241, 0.15); }
+        .icon-pink { background: rgba(236, 72, 153, 0.15); }
+        .icon-cyan { background: rgba(6, 182, 212, 0.15); }
+        .icon-green { background: rgba(16, 185, 129, 0.15); }
+        
+        /* Feature List */
+        .feature-list {
             list-style: none;
         }
         
-        .card li {
-            padding: 8px 0;
+        .feature-list li {
+            padding: var(--space-3) 0;
             color: var(--text-secondary);
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            align-items: center;
+            gap: var(--space-3);
+            font-size: 15px;
         }
         
-        .card li::before {
+        .feature-list li::before {
             content: "✓";
-            color: var(--accent);
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-success);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
-        .links {
+        /* Link Cards */
+        .link-cards {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: var(--space-4);
         }
         
-        .links a {
-            display: block;
-            padding: 16px 20px;
-            background: var(--card);
-            border-radius: var(--radius);
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-5);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
             text-decoration: none;
             color: var(--text-primary);
-            font-weight: 500;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-raised-sm);
+            transition: all 0.3s ease;
         }
         
-        .links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-raised);
         }
         
-        .links a span {
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: normal;
+        .link-card:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-pressed);
         }
         
+        .link-card .link-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        
+        .link-card .link-content {
+            flex: 1;
+        }
+        
+        .link-card .link-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .link-card .link-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        
+        .link-card .link-arrow {
+            color: var(--text-muted);
+            font-size: 20px;
+            transition: transform 0.2s ease;
+        }
+        
+        .link-card:hover .link-arrow {
+            transform: translateX(4px);
+            color: var(--accent-primary);
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-1) var(--space-3);
+            background: var(--gradient-pink);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
-            color: var(--text-secondary);
+            margin-top: var(--space-10);
+            padding-top: var(--space-6);
+            color: var(--text-muted);
             font-size: 14px;
         }
         
         footer a {
-            color: var(--accent);
+            color: var(--accent-primary);
             text-decoration: none;
+            font-weight: 600;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Download Button */
+        .download-section {
+            margin-top: var(--space-8);
+            text-align: center;
+        }
+        
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4) var(--space-8);
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: var(--radius-xl);
+            text-decoration: none;
+            box-shadow: var(--glow-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(99, 102, 241, 0.45);
+        }
+        
+        .btn-download svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .coming-soon {
+            margin-top: var(--space-3);
+            font-size: 13px;
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -159,46 +360,76 @@
         <div class="hero">
             <div class="app-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="white" stroke-width="1.5"/>
-                    <circle cx="12" cy="12" r="3" fill="white"/>
-                    <circle cx="12" cy="5" r="1.5" fill="white"/>
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="3.5" fill="white"/>
+                    <circle cx="12" cy="4.5" r="1.5" fill="white"/>
                 </svg>
             </div>
             <h1>Live Photo Maker</h1>
             <p class="tagline">视频一键转动态壁纸</p>
+            
+            <div class="download-section">
+                <a href="#" class="btn-download">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    App Store
+                </a>
+                <p class="coming-soon">即将上线，敬请期待</p>
+            </div>
         </div>
         
-        <div class="card">
-            <h2>🎬 主要功能</h2>
-            <ul>
+        <div class="soft-card">
+            <h2>
+                <span class="icon-circle icon-purple">🎬</span>
+                主要功能
+            </h2>
+            <ul class="feature-list">
                 <li>视频一键转换为 Live Photo</li>
                 <li>多种比例模板，适配各种设备</li>
-                <li>AI 超分辨率增强封面画质</li>
+                <li>AI 超分辨率增强封面画质 <span class="badge">New</span></li>
                 <li>兼容模式支持各种视频格式</li>
                 <li>详细的壁纸设置引导</li>
             </ul>
         </div>
         
-        <div class="card">
-            <h2>📱 系统要求</h2>
-            <ul>
+        <div class="soft-card">
+            <h2>
+                <span class="icon-circle icon-cyan">📱</span>
+                系统要求
+            </h2>
+            <ul class="feature-list">
                 <li>iOS/iPadOS 16.0 或更高版本</li>
                 <li>完整动态壁纸体验需要 iOS 17+</li>
             </ul>
         </div>
         
-        <div class="links">
-            <a href="privacy.html">
-                隐私政策
-                <br><span>了解我们如何保护您的数据</span>
+        <div class="link-cards">
+            <a href="privacy.html" class="link-card">
+                <div class="link-icon icon-green">🔒</div>
+                <div class="link-content">
+                    <div class="link-title">隐私政策</div>
+                    <div class="link-desc">了解我们如何保护您的数据</div>
+                </div>
+                <span class="link-arrow">→</span>
             </a>
-            <a href="terms.html">
-                使用条款
-                <br><span>使用本应用的条款和条件</span>
+            
+            <a href="terms.html" class="link-card">
+                <div class="link-icon icon-purple">📄</div>
+                <div class="link-content">
+                    <div class="link-title">使用条款</div>
+                    <div class="link-desc">使用本应用的条款和条件</div>
+                </div>
+                <span class="link-arrow">→</span>
             </a>
-            <a href="support.html">
-                支持与帮助
-                <br><span>常见问题和联系方式</span>
+            
+            <a href="support.html" class="link-card">
+                <div class="link-icon icon-pink">💬</div>
+                <div class="link-content">
+                    <div class="link-title">支持与帮助</div>
+                    <div class="link-desc">常见问题和联系方式</div>
+                </div>
+                <span class="link-arrow">→</span>
             </a>
         </div>
         
