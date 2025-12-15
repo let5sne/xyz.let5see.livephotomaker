@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - Live Photo Maker</title>
+    <style>
+        :root {
+            --bg: #F0F0F3;
+            --card: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-secondary: #6B7280;
+            --accent: #6366F1;
+            --radius: 16px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1A1A2E;
+                --card: #25253B;
+                --text-primary: #FFFFFF;
+                --text-secondary: #9CA3AF;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 32px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .update-date {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        
+        p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .highlight {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+        
+        .highlight p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+        
+        ul {
+            list-style: none;
+            margin: 12px 0;
+        }
+        
+        li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--accent);
+        }
+        
+        li strong {
+            color: var(--text-primary);
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← 返回首页</a>
+            <h1>隐私政策</h1>
+            <p class="update-date">最后更新：2024年12月</p>
+        </header>
+        
+        <div class="card">
+            <h2>概述</h2>
+            <p>Live Photo Maker（以下简称"本应用"）尊重并保护您的隐私。本隐私政策说明我们如何收集、使用和保护您的信息。</p>
+            
+            <div class="highlight">
+                <p>🔒 <strong>核心承诺</strong>：所有处理均在您的设备本地完成，我们不会收集或上传您的任何数据。</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>数据收集</h2>
+            <ul>
+                <li><strong>本地处理</strong> - 所有视频处理和 AI 增强均在您的设备本地完成，不会上传到任何服务器。</li>
+                <li><strong>相册访问</strong> - 我们仅在您授权后访问相册，用于读取视频和保存生成的 Live Photo。</li>
+                <li><strong>无用户追踪</strong> - 我们不收集任何个人身份信息，不追踪您的使用行为。</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>权限说明</h2>
+            <ul>
+                <li><strong>相册读取权限</strong> - 用于从相册选择视频素材。</li>
+                <li><strong>相册写入权限</strong> - 用于将生成的 Live Photo 保存到相册。</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>AI 功能</h2>
+            <p>本应用的 AI 超分辨率功能完全在设备本地运行，使用 Apple Core ML 框架进行推理。您的图片和视频不会离开您的设备。</p>
+        </div>
+        
+        <div class="card">
+            <h2>数据存储</h2>
+            <ul>
+                <li><strong>临时缓存</strong> - 处理过程中产生的临时文件存储在应用沙盒内，您可以在设置中清理。</li>
+                <li><strong>最近作品</strong> - 仅存储作品的缩略图和参数信息，不重复存储媒体内容。</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>第三方服务</h2>
+            <p>本应用不使用任何第三方分析服务或广告平台。</p>
+        </div>
+        
+        <div class="contact">
+            <h2>联系我们</h2>
+            <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
+            <p><a href="mailto:support@let5see.xyz">support@let5see.xyz</a></p>
+        </div>
+        
+        <footer>
+            <p>© 2024 let5see.xyz. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

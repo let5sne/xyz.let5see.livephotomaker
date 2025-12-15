@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支持与帮助 - Live Photo Maker</title>
+    <style>
+        :root {
+            --bg: #F0F0F3;
+            --card: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-secondary: #6B7280;
+            --accent: #6366F1;
+            --accent-green: #10B981;
+            --accent-orange: #F59E0B;
+            --radius: 16px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1A1A2E;
+                --card: #25253B;
+                --text-primary: #FFFFFF;
+                --text-secondary: #9CA3AF;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 32px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 12px;
+            color: var(--text-primary);
+        }
+        
+        p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+            padding: 16px 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+        
+        .faq-q {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .faq-a {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+        
+        .tip {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid var(--accent-green);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--accent-orange);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .email-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← 返回首页</a>
+            <h1>支持与帮助</h1>
+            <p class="subtitle">常见问题和联系方式</p>
+        </header>
+        
+        <div class="card">
+            <h2>📖 常见问题</h2>
+            
+            <div class="faq-item">
+                <p class="faq-q">Q: 为什么长按壁纸没有动画效果？</p>
+                <div class="faq-a">
+                    <p>可能的原因：</p>
+                    <p>1. <strong>低电量模式已开启</strong> - 前往「设置 → 电池」关闭低电量模式</p>
+                    <p>2. <strong>Live Photo 效果未开启</strong> - 设置壁纸时，确保 Live Photo 图标为高亮状态</p>
+                    <p>3. <strong>系统版本不支持</strong> - iOS/iPadOS 16 不支持锁屏动态效果，需升级到 17+</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">Q: 生成失败怎么办？</p>
+                <div class="faq-a">
+                    <p>请尝试以下步骤：</p>
+                    <p>1. 开启「兼容模式」- 适用于高分辨率、HDR、HEVC 视频</p>
+                    <p>2. 缩短选择时长 - 选择 1 秒左右的片段</p>
+                    <p>3. 清理缓存后重试</p>
+                    <div class="tip">💡 使用 iPhone 原生拍摄的视频成功率更高</div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">Q: 相册里找不到 LIVE 标识？</p>
+                <div class="faq-a">
+                    <p>请确认：</p>
+                    <p>1. 在「照片」App 中查看，不是「文件」App</p>
+                    <p>2. 点击「相簿 → 媒体类型 → Live Photo」筛选查看</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">Q: 为什么建议开启兼容模式？</p>
+                <div class="faq-a">
+                    <p>某些视频格式可能不被系统完全支持。兼容模式会将视频转换为最兼容的格式：</p>
+                    <p>• 分辨率：720p</p>
+                    <p>• 帧率：30fps</p>
+                    <p>• 编码：H.264</p>
+                    <p>• 色彩：SDR</p>
+                    <div class="warning">⚠️ 4K、HDR、HEVC 视频建议开启兼容模式</div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">Q: 支持哪些视频格式？</p>
+                <div class="faq-a">
+                    <p><strong>支持：</strong>MP4、MOV、M4V、H.264、HEVC、SDR/HDR</p>
+                    <p><strong>不支持：</strong>网络视频链接、非视频文件</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>📱 如何设置壁纸</h2>
+            <p>iOS/iPadOS 17+ 设置步骤：</p>
+            <p>1. 打开系统「照片」App</p>
+            <p>2. 找到 Live Photo（左上角有 LIVE 标识）</p>
+            <p>3. 点击「分享」→「用作壁纸」</p>
+            <p>4. <strong>确保 Live Photo 图标已开启</strong>（高亮状态）</p>
+            <p>5. 点击「添加」完成</p>
+            <div class="tip">💡 锁屏后长按屏幕可测试动态效果</div>
+        </div>
+        
+        <div class="contact-card">
+            <h2>📧 联系我们</h2>
+            <p>如果以上内容没有解决您的问题，或您有其他建议，欢迎联系我们：</p>
+            <a href="mailto:support@let5see.xyz" class="email-btn">发送邮件</a>
+            <p style="margin-top: 16px; font-size: 14px;">support@let5see.xyz</p>
+        </div>
+        
+        <footer>
+            <p>© 2024 let5see.xyz. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

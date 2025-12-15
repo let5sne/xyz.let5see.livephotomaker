@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Photo Maker - 视频一键转动态壁纸</title>
+    <style>
+        :root {
+            --bg: #F0F0F3;
+            --card: #FFFFFF;
+            --text-primary: #1A1A2E;
+            --text-secondary: #6B7280;
+            --accent: #6366F1;
+            --accent-pink: #EC4899;
+            --radius: 16px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1A1A2E;
+                --card: #25253B;
+                --text-primary: #FFFFFF;
+                --text-secondary: #9CA3AF;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+        }
+        
+        .app-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: white;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .tagline {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+        
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card ul {
+            list-style: none;
+        }
+        
+        .card li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .card li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .links a {
+            display: block;
+            padding: 16px 20px;
+            background: var(--card);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .links a span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: normal;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="app-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="white" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="3" fill="white"/>
+                    <circle cx="12" cy="5" r="1.5" fill="white"/>
+                </svg>
+            </div>
+            <h1>Live Photo Maker</h1>
+            <p class="tagline">视频一键转动态壁纸</p>
+        </div>
+        
+        <div class="card">
+            <h2>🎬 主要功能</h2>
+            <ul>
+                <li>视频一键转换为 Live Photo</li>
+                <li>多种比例模板，适配各种设备</li>
+                <li>AI 超分辨率增强封面画质</li>
+                <li>兼容模式支持各种视频格式</li>
+                <li>详细的壁纸设置引导</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>📱 系统要求</h2>
+            <ul>
+                <li>iOS/iPadOS 16.0 或更高版本</li>
+                <li>完整动态壁纸体验需要 iOS 17+</li>
+            </ul>
+        </div>
+        
+        <div class="links">
+            <a href="privacy.html">
+                隐私政策
+                <br><span>了解我们如何保护您的数据</span>
+            </a>
+            <a href="terms.html">
+                使用条款
+                <br><span>使用本应用的条款和条件</span>
+            </a>
+            <a href="support.html">
+                支持与帮助
+                <br><span>常见问题和联系方式</span>
+            </a>
+        </div>
+        
+        <footer>
+            <p>© 2024 <a href="https://let5see.xyz">let5see.xyz</a>. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
